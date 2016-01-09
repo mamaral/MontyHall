@@ -4,6 +4,6 @@
 
 It is quite counter-intuitive, but the correct answer is actually ***yes***, switching is always the best strategy. This program is a simple simulation that objectively shows that this is the case:
 
-[Demo](demo.gif)
+![Demo](demo.gif)
 
 To explain ***why*** this is the case, I'll share what I think is the best explanation.
