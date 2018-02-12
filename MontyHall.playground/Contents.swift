@@ -61,17 +61,17 @@ func runMontyHallSimulationWithStrategy(strategy: Strategy) -> Double {
         // the two goats.
         let winningDoor = randomDoor()
         var selection = randomDoor()
-        let doorContainingGoat = doorContainingGoatWithWinningDoor(winningDoor, initialSelection: selection);
+        let doorContainingGoat = doorContainingGoatWithWinningDoor(winningDoor: winningDoor, initialSelection: selection);
 
         // If we always want to switch OR we want to randomly switch and the randomness
         // is fulfilled, switch our intial selection.
         if strategy == .AlwaysSwitch || (strategy == .Random && ((arc4random() % 2) == 0)) {
-            selection = switchInitialSelection(selection, doorContainingGoat: doorContainingGoat)
+            selection = switchInitialSelection(initialSelection:selection, doorContainingGoat: doorContainingGoat)
         }
 
         // We win if our selection is the winning door.
         if selection == winningDoor {
-            wins++
+            wins += 1
         }
     }
 
@@ -85,4 +85,4 @@ let strategy = Strategy.NeverSwitch
 
 // Output the results.
 print("Win percentage with given strategy: \(strategy)", terminator: "")
-let winRate = String(runMontyHallSimulationWithStrategy(strategy)) + "%"
+let winRate = String(runMontyHallSimulationWithStrategy(strategy: strategy)) + "%"
